@@ -14,7 +14,7 @@ crontab -l
 */12 * * * * pgrep -x "web" > /dev/null || nohup /home/${USER}/.vmess/web run -c config.json >/dev/null 2>&1 &
 ```
 - 如果没有保活设置成功可以执行下面命令
-- 保活w命令
+- 保活命令
 ```
 (crontab -l; echo "*/12 * * * * pgrep -x "web" > /dev/null || nohup /home/${USER}/.vmess/web run -c config.json >/dev/null 2>&1 &") | crontab -
 ```
