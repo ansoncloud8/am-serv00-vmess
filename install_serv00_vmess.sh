@@ -60,7 +60,7 @@ reading "\n确定继续安装吗？【y/n】: " choice
   case "$choice" in
     [Yy])
         cd $WORKDIR
-        read_nz_variables
+        # read_nz_variables
         read_vmess_port
         generate_config
         download_singbox && wait
@@ -96,9 +96,9 @@ reading "\n清理所有进程将退出ssh连接，确定继续清理吗？【y/n
 download_singbox() {
   ARCH=$(uname -m) && DOWNLOAD_DIR="." && mkdir -p "$DOWNLOAD_DIR" && FILE_INFO=()
   if [ "$ARCH" == "arm" ] || [ "$ARCH" == "arm64" ] || [ "$ARCH" == "aarch64" ]; then
-      FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/arm64-sb web")
+      FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-sb web")
   elif [ "$ARCH" == "amd64" ] || [ "$ARCH" == "x86_64" ] || [ "$ARCH" == "x86" ]; then
-      FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/amd64-web web")
+      FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/amd64-web web")
   else
       echo "Unsupported architecture: $ARCH"
       exit 1
