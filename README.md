@@ -68,8 +68,10 @@ crontab -l
 ```
 cat /home/${USER}/.vmess/list.txt
 ```
+- 节点通过Cloudflare的CDN设置域名回源进行加速
+ ### 请查看视频教程 
 
-## 四、卸载VMess
+## 五、卸载VMess
 ### 一键卸载命令，根据提示，选择2（2. 卸载sing-box） 直接卸载完成
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/ansoncloud8/am-serv00-vmess/main/install_serv00_vmess.sh)
