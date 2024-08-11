@@ -103,10 +103,29 @@ argo_configure() {
       [[ -z $argo_choice ]] && return
       [[ "$argo_choice" != "y" && "$argo_choice" != "Y" && "$argo_choice" != "n" && "$argo_choice" != "N" ]] && { red "无效的选择，请输入y或n"; return; }
       if [[ "$argo_choice" == "y" || "$argo_choice" == "Y" ]]; then
-          reading "请输入argo固定隧道域名: " ARGO_DOMAIN
-          green "你的argo固定隧道域名为: $ARGO_DOMAIN"
-          reading "请输入argo固定隧道密钥（Json或Token）: " ARGO_AUTH
-          green "你的argo固定隧道密钥为: $ARGO_AUTH"
+          # 读取 ARGO_DOMAIN 变量
+          while [[ -z $ARGO_DOMAIN ]]; do
+            reading "请输入argo固定隧道域名: " ARGO_DOMAIN
+            if [[ -z $ARGO_DOMAIN ]]; then
+                red "ARGO固定隧道域名不能为空，请重新输入。"
+            else
+                green "你的argo固定隧道域名为: $ARGO_DOMAIN"
+            fi
+          done
+        
+          # 读取 ARGO_AUTH 变量
+          while [[ -z $ARGO_AUTH ]]; do
+            reading "请输入argo固定隧道密钥（Json或Token）: " ARGO_AUTH
+            if [[ -z $ARGO_AUTH ]]; then
+                red "ARGO固定隧道密钥不能为空，请重新输入。"
+            else
+                green "你的argo固定隧道密钥为: $ARGO_AUTH"
+            fi
+          done           
+	  # reading "请输入argo固定隧道域名: " ARGO_DOMAIN
+   #        green "你的argo固定隧道域名为: $ARGO_DOMAIN"
+   #        reading "请输入argo固定隧道密钥（Json或Token）: " ARGO_AUTH
+   #        green "你的argo固定隧道密钥为: $ARGO_AUTH"
 	  echo -e "${red}注意：${purple}使用token，需要在cloudflare后台设置隧道端口和面板开放的tcp端口一致${re}"
       else
           green "ARGO隧道变量未设置，将使用临时隧道"
@@ -137,10 +156,18 @@ EOF
 download_singbox() {
   ARCH=$(uname -m) && DOWNLOAD_DIR="." && mkdir -p "$DOWNLOAD_DIR" && FILE_INFO=()
   if [ "$ARCH" == "arm" ] || [ "$ARCH" == "arm64" ] || [ "$ARCH" == "aarch64" ]; then
-      FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-sb web" "https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-bot13 bot")
+      # if [[ -z $ARGO_AUTH || -z $ARGO_DOMAIN ]]; then
+      # 	FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-sb web")
+      # else
+      	FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-sb web" "https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-bot13 bot")
+      # fi 
       # FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-sb web" "https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-bot13 bot" "https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-swith npm")
   elif [ "$ARCH" == "amd64" ] || [ "$ARCH" == "x86_64" ] || [ "$ARCH" == "x86" ]; then
-      FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/amd64-web web" "https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-bot bot")
+      # if [[ -z $ARGO_AUTH || -z $ARGO_DOMAIN ]]; then
+      # 	FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/amd64-web web")
+      # else
+      	FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/amd64-web web" "https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-bot bot")
+      # fi
       # FILE_INFO=("https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/amd64-web web" "https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-bot bot" "https://github.com/ansoncloud8/am-serv00-vmess/releases/download/1.0.0/arm64-npm npm")
   else
       echo "Unsupported architecture: $ARCH"
@@ -359,6 +386,7 @@ run_sb() {
 }
 
 get_links(){
+  
   get_argodomain() {
     if [[ -n $ARGO_AUTH ]]; then
       echo "$ARGO_DOMAIN"
