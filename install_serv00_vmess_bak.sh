@@ -19,7 +19,7 @@ export NEZHA_SERVER=${NEZHA_SERVER:-''}
 export NEZHA_PORT=${NEZHA_PORT:-'5555'}     
 export NEZHA_KEY=${NEZHA_KEY:-''} 
 
-[[ "$HOSTNAME" == "s1.ct8.pl" ]] && WORKDIR="domains/${USERNAME}.ct8.pl/logs" || WORKDIR="domains/${USERNAME}.serv00.net/logs"
+[[ "$HOSTNAME" == "s1.ct8.pl" ]] && WORKDIR="/home/${USERNAME}/.vmess" || WORKDIR="/home/${USERNAME}/.vmess"
 [ -d "$WORKDIR" ] || (mkdir -p "$WORKDIR" && chmod 777 "$WORKDIR")
 
 read_vmess_port() {
@@ -195,8 +195,8 @@ generate_config() {
     {
       "type": "wireguard",
       "tag": "wireguard-out",
-      "server": "162.159.195.100",
-      "server_port": 4500,
+      "server": "162.159.195.142",
+      "server_port": 4198,
       "local_address": [
         "172.16.0.2/32",
         "2606:4700:110:83c7:b31f:5858:b3a8:c6b1/128"
@@ -330,7 +330,7 @@ menu() {
    echo -e "${green}脚本地址：${re}${yellow}https://github.com/ansoncloud8/am-serv00-vmess${re}\n"
    echo -e "${green}博客：${re}${yellow}https://am.809098.xyz${re}\n"
    echo -e "${green}TG反馈群组：${re}${yellow}https://t.me/AM_CLUBS${re}\n"
-   purple "转载请著名出处，请勿滥用\n"
+   purple "老王魔改简化脚本，转载请著名出处，请勿滥用\n"
    green "1. 安装sing-box"
    echo  "==============="
    red "2. 卸载sing-box"
