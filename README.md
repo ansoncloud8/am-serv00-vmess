@@ -16,8 +16,8 @@
 <center>注册帐号请查看下面视频</center>
 <center><a href="https://youtu.be/NET1FTlfDTs">[点击观看视频教程]</a></center>
 
-![image](https://github.com/user-attachments/assets/b3b3733b-3553-45dd-9346-c4664251755f)
-  
+![image](https://github.com/user-attachments/assets/57c3ff7b-ae42-42c0-87ac-acb1b5bd177a)
+
 ### 2、加下群发送关键字 ssh 获取连接工具
 Telegram频道：https://t.me/AM_CLUBS
 
