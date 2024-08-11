@@ -426,7 +426,7 @@ menu() {
    echo -e "${green}脚本地址：${re}${yellow}https://github.com/ansoncloud8/am-serv00-vmess${re}\n"
    echo -e "${green}博客：${re}${yellow}https://am.809098.xyz${re}\n"
    echo -e "${green}TG反馈群组：${re}${yellow}https://t.me/AM_CLUBS${re}\n"
-   purple "老王魔改简化脚本，转载请著名出处，请勿滥用\n"
+   purple "根据老王脚本魔改简化，转载请著名出处，请勿滥用\n"
    green "1. 安装sing-box"
    echo  "==============="
    red "2. 卸载sing-box"
