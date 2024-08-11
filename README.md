@@ -1,8 +1,55 @@
-# [am-serv00-vmess](https://github.com/ansoncloud8/am-serv00-vmess/)
+# [am-serv00-vmess](https://github.com/ansoncloud8/am-serv00-vmess)
+▶️ **新人[YouTube](https://youtube.com/@AM_CLUB)** 需要您的支持，请务必帮我**点赞**、**关注**、**打开小铃铛**，***十分感谢！！！*** ✅
+</br>🎁 不要只是下载或Fork。请 **follow** 我的GitHub、给我所有项目一个 **Star** 星星（拜托了）！你的支持是我不断前进的动力！ 💖
+</br>✅**解锁更多技术请访问[【个人博客】](https://am.809098.xyz)**
+#
 
-# 一键安装
+# 免费serv00服务器一键脚本部署VMess
+
+这个项目的脚本安装管理并运行一个VMess节点,并可以通过Cloudflare的CDN设置域名回源进行加速,解锁ChatGPT、TikTok、其它流媒体、小网站等
+
+# 部署教程：
+
+## 一、需要准备的前提资料
+### 1、首先注册一个Serv00账号，建议使用gmail邮箱注册，注册好会有一封邮箱上面写着你注册时的用户名和密码
+- 注册帐号地址：https://serv00.com
+<center>注册帐号请查看下面视频</center>
+<center><a href="https://youtu.be/NET1FTlfDTs">[点击观看视频教程]</a></center>
+
+![image](https://github.com/user-attachments/assets/b3b3733b-3553-45dd-9346-c4664251755f)
+  
+### 2、加下群发送关键字 ssh 获取连接工具
+Telegram频道：https://t.me/AM_CLUBS
+
+## 二、安装前需准备的初始设置
+- 1、登入邮件里面发你的 DevilWEB webpanel 后面的网址，进入网站后点击 Change languag 把面板改成英文
+- 2、然后在左边栏点击 Additonal services ,接着点击 Run your own applications 看到一个 Enable 点击
+- 3、找到 Port reservation 点击后面的 Add Port 新开一个端口，随便写，也可以点击 Port后面的 Random随机选择Port tybe 选择 TCP
+- 4、然后点击 Port list 你会看到一个端口
+![image](https://github.com/user-attachments/assets/1b11ebdb-49e6-427d-a074-f51d52235f7e)
+
+
+- 5、 启用管理权限：
+<img width="800" height="600" alt="serv00" src="https://github.com/user-attachments/assets/48466f3a-1b75-4cf3-8dd9-7c2e440b73fe">
+
+***完成此步骤后，退出 SSH 并再次登录。***
+
+## 三、开始安装部署
+
+- 1、用我们前面下载的工具登入SSH(有些工具 第一次连接还是会弹出输出密码记得点X 然后再添加密码 )
+使用 serv00 通过电子邮件发送给您的信息（下面username、panel要修改成你邮箱收到对应的信息）。
+```
+ssh <username>@<panel>.serv00.com
+```
+
+- 2、进入到面板后复制下面代码一键安装
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/ansoncloud8/am-serv00-vmess/main/install_serv00_vmess.sh)
+```
+
+- 3、保活命令（有时母鸡重启后，会删除所有进程和定时任务，所以要手工重新执行下面保活命令，让定时任务生效，不要问为什么，因为是免费的后遗证）
+```
+(crontab -l; echo "*/12 * * * * pgrep -x "web" > /dev/null || nohup /home/${USER}/.vmess/web run -c /home/${USER}/.vmess/config.json >/dev/null 2>&1 &") | crontab -
 ```
 
 - 查看保活crontab任务
@@ -13,8 +60,19 @@ crontab -l
 ```
 */12 * * * * pgrep -x "web" > /dev/null || nohup /home/${USER}/.vmess/web run -c config.json >/dev/null 2>&1 &
 ```
-- 如果没有保活设置成功可以执行下面命令
-- 保活命令（有时母鸡重启后，会删除所有进程和定时任务，所以要手工重新执行下面保活命令，让定时任务生效，不要问为什么，因为是免费的后遗证）
+
+## 四、测试节点
+- 把安装成功返回的节点信息复制到订阅工具里就可以使用
+
+- 如果不记得节点配置，可以通过下面信息查看
 ```
-(crontab -l; echo "*/12 * * * * pgrep -x "web" > /dev/null || nohup /home/${USER}/.vmess/web run -c config.json >/dev/null 2>&1 &") | crontab -
+cat /home/${USER}/.vmess/list.txt
 ```
+
+## 四、卸载VMess
+### 一键卸载命令，根据提示，选择2（2. 卸载sing-box） 直接卸载完成
+```
+bash <(curl -Ls https://raw.githubusercontent.com/ansoncloud8/am-serv00-vmess/main/install_serv00_vmess.sh)
+```
+
+
