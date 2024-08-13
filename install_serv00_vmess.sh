@@ -423,7 +423,7 @@ menu() {
    clear
    echo ""
    purple "=== serv00 | AM科技 vmess一键安装脚本 ===\n"
-   echo -e "${green}脚本地址：${re}${yellow}https://github.com/ansoncloud8/am-serv00-vmess${re}\n"
+   echo -e "${green}脚本地址：${re}${yellow}https://github.com/amclubs/am-serv00-vmess${re}\n"
    echo -e "${green}博客：${re}${yellow}https://am.809098.xyz${re}\n"
    echo -e "${green}TG反馈群组：${re}${yellow}https://t.me/AM_CLUBS${re}\n"
    purple "根据老王脚本魔改简化版本，转载请著名出处，请勿滥用\n"
