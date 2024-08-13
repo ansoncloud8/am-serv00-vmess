@@ -74,7 +74,7 @@ crontab -l
 ```
 - 上面命令完会显示下面信息就是有保活设置成功
 ```
-*/12 * * * * pgrep -x "web" > /dev/null || nohup /home/${USER}/.vmess/web run -c config.json >/dev/null 2>&1 &
+*/12 * * * * pgrep -x "web" > /dev/null || nohup /home/${USER}/.vmess/web run -c /home/${USER}/.vmess/config.json >/dev/null 2>&1 &
 ```
 
 ## 四、测试节点
