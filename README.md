@@ -93,7 +93,7 @@ HTTP：80，8080，8880，2052，2082，2086，2095
 
 HTTPS：443，2053，2083，2087，2096，8443
 
-- 4、请查看视频教程（Cloudflare的CDN设置域名回源进行加速）
+- 4、请查看视频教程（Cloudflare的CDN设置域名回源进行加速） [视频教程](https://youtu.be/6UZXHfc3zEU)
 - 5、[免费域名注册教程](https://youtu.be/cI36vtXuQrM)
 
 ## 五、卸载VMess
