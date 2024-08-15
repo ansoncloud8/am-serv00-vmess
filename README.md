@@ -37,7 +37,7 @@
 ![image](https://github.com/user-attachments/assets/57c3ff7b-ae42-42c0-87ac-acb1b5bd177a)
 
 ### 2、加下群发送关键字 ssh 获取连接工具
-Telegram频道：https://t.me/AM_CLUBS
+Telegram频道：[@AM_CLUBS](https://t.me/AM_CLUBS)
 
 ## 二、安装前需准备的初始设置
 - 1、登入邮件里面发你的 DevilWEB webpanel 后面的网址，进入网站后点击 Change languag 把面板改成英文
