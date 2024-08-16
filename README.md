@@ -69,6 +69,20 @@ bash <(curl -Ls https://raw.githubusercontent.com/amclubs/am-serv00-vmess/main/i
 ```
 (crontab -l; echo "*/12 * * * * pgrep -x "web" > /dev/null || nohup /home/${USER}/.vmess/web run -c /home/${USER}/.vmess/config.json >/dev/null 2>&1 &") | crontab -
 ```
+### 隧道保活命令情况如下
+- 默认隧道保活命令， <你的面板开通端口> 要修改你的端口
+```
+(crontab -l; echo "*/12 * * * * pgrep -x "bot" > /dev/null || nohup /home/${USER}/.vmess/bot tunnel --edge-ip-version auto --no-autoupdate --protocol http2 --logfile /home/${USER}/.vmess/boot.log --loglevel info --url http://localhost:<你的面板开通端口> >/dev/null 2>&1 &") | crontab -
+```
+- token固定隧道保活命令， <ARGO_AUTH> 要修改你的token
+```
+(crontab -l; echo "*/12 * * * * pgrep -x "bot" > /dev/null || nohup /home/${USER}/.vmess/bot tunnel --edge-ip-version auto --no-autoupdate --protocol http2 run --token <ARGO_AUTH> >/dev/null 2>&1 &") | crontab -
+```
+- json固定隧道保活命令， <ARGO_AUTH> 要修改你的token
+```
+(crontab -l; echo "*/12 * * * * pgrep -x "bot" > /dev/null || nohup /home/${USER}/.vmess/bot tunnel --edge-ip-version auto --config tunnel.yml run >/dev/null 2>&1 &") | crontab -
+```
+
 
 - 查看保活crontab任务
 ```
