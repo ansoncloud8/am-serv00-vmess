@@ -78,7 +78,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/amclubs/am-serv00-vmess/main/i
 ```
 (crontab -l; echo "*/12 * * * * pgrep -x "bot" > /dev/null || nohup /home/${USER}/.vmess/bot tunnel --edge-ip-version auto --no-autoupdate --protocol http2 run --token <ARGO_AUTH> >/dev/null 2>&1 &") | crontab -
 ```
-- json固定隧道保活命令， <ARGO_AUTH> 要修改你的token
+- json固定隧道保活命令
 ```
 (crontab -l; echo "*/12 * * * * pgrep -x "bot" > /dev/null || nohup /home/${USER}/.vmess/bot tunnel --edge-ip-version auto --config tunnel.yml run >/dev/null 2>&1 &") | crontab -
 ```
